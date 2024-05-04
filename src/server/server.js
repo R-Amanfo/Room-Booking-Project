@@ -13,11 +13,11 @@ app.use((req,res,next) => {
 app.use(express.json({limit:'100mb'}))
 
 //connect to sql database
-let db = new sqlite3.Database('test2.db', (err) => {
+let db = new sqlite3.Database('test3.db', (err) => {
     if (err) {
         console.error(err.message);
     }
-    console.log('Connected to the acess database.')
+    console.log('Connected to the access database.')
 })
 
 
@@ -39,10 +39,12 @@ app.post('/auth', (req, res) => {
             // User does not exist
             return res.status(401).json({ message: "User does not exist" });
         }
-
-        // User exists, compare passwords
+        //password error!!
+        // User exists, compare passwords 
         bcrypt.compare(password, row.password, function (err, result) {
             if (err) {
+                console.log("505");
+                console.log(err);
                 console.error(err.message);
                 return res.status(500).json({ message: "Internal server error" });
             }
@@ -89,13 +91,14 @@ app.post('/check-account', (req, res) => {
         }
 
         if (row) {
+            console.log("user exist");
             return res.status(200).json({ status: "User exists", userExists: true });
         } else {
             return res.status(200).json({ status: "User does not exist", userExists: false });
         }
     });
 });
-
+//
 app.post('/addUser', (req, res) => {
     const { username, email } = req.body;
 
@@ -110,8 +113,22 @@ app.post('/addUser', (req, res) => {
     });
 });
 
+app.post('/addUserfull', (req, res) => {
+    const { username, email } = req.body;
+
+    db.run(`INSERT INTO users (userid,firstname,lastname,username, email,password) VALUES (?, ?,?,?,?,?)`, [userid,firstname,lastname,username, email,password], function(err) {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send('Error inserting user into database');
+        } else {
+            console.log(`A new user has been added with ID: ${this.lastID}`);
+            res.status(200).send('User added successfully');
+        }
+    });
+});
+
 app.get('/users', (req, res) => {
-    db.all(`SELECT * FROM Users`, [], (err, rows) => {
+    db.all(`SELECT * FROM users`, [], (err, rows) => {
         if (err) {
             console.error(err.message);
             res.status(500).send('Error retrieving users from database');
