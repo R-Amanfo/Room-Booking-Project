@@ -43,12 +43,13 @@ app.post('/auth', (req, res) => {
         // User exists, compare passwords 
         bcrypt.compare(password, row.password, function (err, result) {
             if (err) {
-                console.log("505");
+                
                 console.log(err);
                 console.error(err.message);
                 return res.status(500).json({ message: "Internal server error" });
             }
             if (!result) {
+                console.log("test PW call");
                 // Invalid password
                 return res.status(401).json({ message: "Invalid password" });
             }
