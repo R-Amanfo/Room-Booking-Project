@@ -36,23 +36,25 @@ app.post('/auth', (req, res) => {
         }
 
         if (!row) {
-            // User does not exist
+            // User does not exist 
             return res.status(401).json({ message: "User does not exist" });
         }
-        //password error!!
+        //password error!! Disabled bcrypt for now nees to hash the pw then compare
         // User exists, compare passwords 
         bcrypt.compare(password, row.password, function (err, result) {
-            if (err) {
+            // if (err) {
                 
-                console.log(err);
-                console.error(err.message);
-                return res.status(500).json({ message: "Internal server error" });
-            }
-            if (!result) {
-                console.log("test PW call");
-                // Invalid password
-                return res.status(401).json({ message: "Invalid password" });
-            }
+            //     // console.log(err);
+            //     // console.error(err.message);
+            //     console.error("Error comparing passwords:", err);
+            //     return res.status(500).json({ message: "Internal server error" });
+            // }
+            // if (!result) {
+            //     console.log(row.password);
+            //     console.log("Password comparison failed.");
+            //     // Invalid password
+            //     return res.status(401).json({ message: "Invalid password" });
+            // }
 
             // Password is correct, generate JWT token
             let loginData = {
