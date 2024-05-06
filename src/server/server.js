@@ -42,6 +42,12 @@ app.post('/auth', (req, res) => {
         //password error!! Disabled bcrypt for now nees to hash the pw then compare
         // User exists, compare passwords 
         bcrypt.compare(password, row.password, function (err, result) {
+            if(password != row.password){
+                console.log(password)
+                console.log(row.password);
+                return res.status(401).json({ message: "Invalid password" });
+
+            }
             // if (err) {
                 
             //     // console.log(err);
@@ -50,6 +56,7 @@ app.post('/auth', (req, res) => {
             //     return res.status(500).json({ message: "Internal server error" });
             // }
             // if (!result) {
+            //     console.log(password)
             //     console.log(row.password);
             //     console.log("Password comparison failed.");
             //     // Invalid password

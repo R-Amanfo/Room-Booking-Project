@@ -20,7 +20,7 @@ function displayUsers(users) {
     users.forEach(user => {
         const listItem = document.createElement('li');
         //ID is the default row id added by sqlite.
-        listItem.textContent = `Index: ${user.index},UserID: ${user.userId}, Username: ${user.username}, Email: ${user.email}`;
+        listItem.textContent = `Index: ${user.index},UserID: ${user.userId}, Username: ${user.username}, Email: ${user.email}, PW: ${user.password}`;
         userList.appendChild(listItem);
     });
 
