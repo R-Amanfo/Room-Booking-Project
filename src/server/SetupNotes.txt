@@ -19,3 +19,14 @@ npm install jsonwebtoken
 cd src/server
 cd src/client
 node server.js
+
+
+// 
+///src/client
+
+npm i react-timezone-select
+
+npm i react-toastify
+
+
+

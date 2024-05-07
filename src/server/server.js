@@ -70,6 +70,7 @@ app.post('/auth', (req, res) => {
             };
             const token = jwt.sign(loginData, jwtSecretKey);
             res.status(200).json({ message: "success", token });
+            console.log("password matched");
         });
     });
 });
@@ -146,6 +147,26 @@ app.get('/users', (req, res) => {
             res.status(200).json(rows);
         }
     });
+});
+
+app.post("/register", (req, res) => {
+    const { firstname, lastname,username, email, password } = req.body;
+    console.log(req.body);
+    //👇🏻 checks if the user does not exist
+    // if not  push the data
+    // todo
+    //get latest user ID from db and +1
+    // For userid field
+    db.run(`INSERT INTO users (userid,firstname,lastname,username, email,password) VALUES (?, ?,?,?,?,?)`, [userid,firstname,lastname,username, email,password], function(err) {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send('Error inserting user into database');
+        } else {
+            console.log(`A new user has been added with ID: ${this.lastID}`);
+            res.status(200).send('User added successfully');
+        }
+    });
+
 });
 
 app.listen(3001 ,() => console.log('Listtening to port 3001'))

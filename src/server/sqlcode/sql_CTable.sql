@@ -41,7 +41,38 @@
 -- // get pasword
 -- SELECT password FROM users Where username = "testy";
 -- // change password
-UPDATE users SET password ='amq@%N@r' WHERE username='tester';
+-- UPDATE users SET password ='amq@%N@r' WHERE username='tester';
+
+
+-- INSERT INTO users (username, email) VALUES ('Testperson','testemail@email.com');
+
+
+
+
+
+
+
+-- CREATE TABLE rooms (
+--   roomid INTEGER PRIMARY KEY AUTOINCREMENT,
+--   roomname TEXT NOT NULL,
+--   capacity INTEGER NOT NULL
+-- );
+
+-- INSERT INTO rooms (roomname, capacity) VALUES ('Room1','4');
+-- INSERT INTO rooms (roomname, capacity) VALUES ('Room2','3');
+-- INSERT INTO rooms (roomname, capacity) VALUES ('Room3','6');
+
+-- CREATE TABLE equipment (
+--   eqid INTEGER PRIMARY KEY AUTOINCREMENT,
+--   eqname TEXT NOT NULL,
+--   quantity INTEGER NOT NULL,
+--   room_id INTEGER NOT NULL,
+--   FOREIGN KEY (room_id) REFERENCES rooms(roomid)
+-- );
+
+INSERT INTO equipment (eqname, quantity,room_id) VALUES ('samsunga1','5','2');
+
+
 
 
 -- DROP TABLE IF EXISTS users;

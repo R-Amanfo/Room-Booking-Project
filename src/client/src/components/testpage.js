@@ -1,20 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Testpage = () => {
   return (
     <div>
        
        <p>
-          TEst TEst
+          Booking system
         </p>
-        <a
-          
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Link to="/booking"> booking  Test </Link>
 
     </div>
   )

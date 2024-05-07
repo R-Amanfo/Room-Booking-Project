@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = (props) => {
     const [email, setEmail] = useState("")
@@ -83,16 +83,12 @@ const Login = (props) => {
                 props.setEmail(email)
                 navigate("/Testpage")
                 console.log("login working")
-             // window.alert("Wrong email or password")
-              //error!! failing email check. ignoring this error for now by swapping
+             
             } else {
               window.alert("Wrong email or password")
               let ror = r.message
               console.log(ror);
-                // localStorage.setItem("user", JSON.stringify({email, token: r.token}))
-                // props.setLoggedIn(true)
-                // props.setEmail(email)
-                // navigate("/Testhookcont")
+             
             }
         })
     }
@@ -126,6 +122,13 @@ const Login = (props) => {
                 type="button"
                 onClick={onButtonClick}
                 value={"Log in"} />
+
+                <p style={{ textAlign: "center", marginTop: "30px" }}>
+                    Don't have an account?{" "}
+                    <Link className='link' to='/Signup'>
+                        Create one
+                    </Link>
+                </p>
         </div>
     </div>
 }
