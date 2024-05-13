@@ -1,17 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 //import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios';
 
 const SearchBar = () => {
   const [equipment, setEquipment] = useState('');
   const [date, setDate] = useState(new Date());
   const [numberOfPeople, setNumberOfPeople] = useState(1);
-  const [equipmentList, setEquipmentList] = useState([
-    'Equipment 1',
-    'Equipment 2',
-    'Equipment 3'
-    // Add more equipment options as needed
-  ]);
+  const [equipmentList, setEquipmentList] = useState([]);
+
+  useEffect(() => {
+    async function fetchEquipmentData() {
+      try {
+        const response = await axios.get('http://localhost:3001/equipment');
+        setEquipmentList(response.data);
+      } catch (error) {
+        console.error('Error fetching equipment data:', error);
+      }
+    }
+
+    fetchEquipmentData();
+  }, []);
 
   const handleEquipmentChange = (event) => {
     setEquipment(event.target.value);
@@ -37,7 +46,7 @@ const SearchBar = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="equipment">Select Equipment:</label>
-        <select id="equipment" value={equipment} onChange={handleEquipmentChange}>
+        <select id="equipment" value={setEquipment} onChange={handleEquipmentChange}>
           <option value="">-- Select Equipment --</option>
           {equipmentList.map((item, index) => (
             <option key={index} value={item}>{item}</option>

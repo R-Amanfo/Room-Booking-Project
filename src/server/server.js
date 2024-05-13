@@ -124,6 +124,21 @@ app.post('/addUser', (req, res) => {
     });
 });
 
+app.post('/addequipment', (req, res) => {
+    const { name,description, quantity } = req.body;
+
+    db.run(`INSERT INTO Equipment (name,quantity, quantity) VALUES (?,?,?)`, [name, description,quantity], function(err) {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send('Error inserting user into database');
+        } else {
+            console.log(`A equipment has been added with ID: ${this.lastID}`);
+            res.status(200).send('equipment added successfully');
+        }
+    });
+});
+
+
 app.post('/addUserfull', (req, res) => {
     const { username, email } = req.body;
 
@@ -140,6 +155,17 @@ app.post('/addUserfull', (req, res) => {
 
 app.get('/users', (req, res) => {
     db.all(`SELECT * FROM users`, [], (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send('Error retrieving users from database');
+        } else {
+            res.status(200).json(rows);
+        }
+    });
+});
+
+app.get('/equipment', (req, res) => {
+    db.all(`SELECT * FROM Equipment`, [], (err, rows) => {
         if (err) {
             console.error(err.message);
             res.status(500).send('Error retrieving users from database');
@@ -168,5 +194,7 @@ app.post("/register", (req, res) => {
     });
 
 });
+
+
 
 app.listen(3001 ,() => console.log('Listtening to port 3001'))
