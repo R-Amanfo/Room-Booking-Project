@@ -171,6 +171,19 @@ app.get('/equipment', (req, res) => {
             res.status(500).send('Error retrieving users from database');
         } else {
             res.status(200).json(rows);
+          //  console.log(rows);
+        }
+    });
+});
+
+app.get('/room', (req, res) => {
+    db.all(`SELECT * FROM Room`, [], (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send('Error retrieving users from database');
+        } else {
+            res.status(200).json(rows);
+            console.log(rows);
         }
     });
 });

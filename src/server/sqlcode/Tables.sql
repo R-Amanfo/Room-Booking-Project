@@ -3,6 +3,7 @@ CREATE TABLE Room (
   name TEXT NOT NULL UNIQUE,
   description TEXT,
   capacity INTEGER NOT NULL DEFAULT 1 
+  max_capacity INTEGER
 );
 
 CREATE TABLE Equipment (

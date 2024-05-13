@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 //import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
+import '../index.css';
 
 const SearchBar = () => {
   const [equipment, setEquipment] = useState([]);
@@ -25,8 +26,8 @@ const SearchBar = () => {
         option.value = testdata[i].name;
         select.add(option);
       }
-        setEquipmentList(testdata);
-        // console.log(setEquipmentList);
+       // setEquipmentList(testdata); //adds blank options to the list
+   
       } catch (error) {
         console.error('Error fetching equipment data:', error);
       }
@@ -61,8 +62,8 @@ const SearchBar = () => {
         <label htmlFor="equipment">Select Equipment:</label>
         <select id="equipment" value={setEquipment} onChange={handleEquipmentChange}>
           <option value="">-- Select Equipment --</option>
-          {equipmentList.map((item, index) => (
-            <option key={index} value={equipmentList.name}>{equipment.name}</option>
+          {equipmentList.map((item, index) => (            
+             <option key={index} value={equipmentList.name}>{equipment.name}</option>
           ))}
         </select>
       </div>
