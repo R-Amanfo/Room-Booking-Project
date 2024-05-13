@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 import axios from 'axios';
 
 const SearchBar = () => {
-  const [equipment, setEquipment] = useState('');
+  const [equipment, setEquipment] = useState([]);
   const [date, setDate] = useState(new Date());
   const [numberOfPeople, setNumberOfPeople] = useState(1);
   const [equipmentList, setEquipmentList] = useState([]);
@@ -13,14 +13,27 @@ const SearchBar = () => {
     async function fetchEquipmentData() {
       try {
         const response = await axios.get('http://localhost:3001/equipment');
-        setEquipmentList(response.data);
+        // console.log(response.data);
+        // console.log("Test",response.data.name);
+        let testdata = response.data;        
+        console.log(testdata);        
+        
+        for (var i = 0; i < testdata.length; i++) {
+        var select = document.getElementById("equipment");
+        var option = document.createElement("option");
+        option.text = testdata[i].name;   
+        option.value = testdata[i].name;
+        select.add(option);
+      }
+        setEquipmentList(testdata);
+        // console.log(setEquipmentList);
       } catch (error) {
         console.error('Error fetching equipment data:', error);
       }
     }
 
     fetchEquipmentData();
-  }, []);
+      }, []);
 
   const handleEquipmentChange = (event) => {
     setEquipment(event.target.value);
@@ -41,7 +54,7 @@ const SearchBar = () => {
     console.log('Date:', date);
     console.log('Number of People:', numberOfPeople);
   };
-
+  
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -49,7 +62,7 @@ const SearchBar = () => {
         <select id="equipment" value={setEquipment} onChange={handleEquipmentChange}>
           <option value="">-- Select Equipment --</option>
           {equipmentList.map((item, index) => (
-            <option key={index} value={item}>{item}</option>
+            <option key={index} value={equipmentList.name}>{equipment.name}</option>
           ))}
         </select>
       </div>
