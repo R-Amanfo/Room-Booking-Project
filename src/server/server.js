@@ -13,7 +13,7 @@ app.use((req,res,next) => {
 app.use(express.json({limit:'100mb'}))
 
 //connect to sql database
-let db = new sqlite3.Database('test3.db', (err) => {
+let db = new sqlite3.Database('./database/database3.db', (err) => {
     if (err) {
         console.error(err.message);
     }
@@ -29,7 +29,7 @@ const jwtSecretKey = "dsfdsfsdfdsvcsvdfgefg";
 app.post('/auth', (req, res) => {
     const { email, password } = req.body;
 
-    db.get(`SELECT * FROM users WHERE email = ?`, [email], (err, row) => {
+    db.get(`SELECT * FROM User WHERE email = ?`, [email], (err, row) => {
         if (err) {
             console.error(err.message);
             return res.status(500).json({ message: "Internal server error" });
@@ -95,7 +95,7 @@ app.post('/verify', (req, res) => {
 app.post('/check-account', (req, res) => {
     const { email } = req.body;
 
-    db.get(`SELECT * FROM users WHERE email = ?`, [email], (err, row) => {
+    db.get(`SELECT * FROM User WHERE email = ?`, [email], (err, row) => {
         if (err) {
             console.error(err.message);
             return res.status(500).json({ message: "Internal server error" });
@@ -113,7 +113,7 @@ app.post('/check-account', (req, res) => {
 app.post('/addUser', (req, res) => {
     const { username, email } = req.body;
 
-    db.run(`INSERT INTO users (username, email) VALUES (?, ?)`, [username, email], function(err) {
+    db.run(`INSERT INTO User (username, email) VALUES (?, ?)`, [username, email], function(err) {
         if (err) {
             console.error(err.message);
             res.status(500).send('Error inserting user into database');
@@ -142,7 +142,7 @@ app.post('/addequipment', (req, res) => {
 app.post('/addUserfull', (req, res) => {
     const { username, email } = req.body;
 
-    db.run(`INSERT INTO users (userid,firstname,lastname,username, email,password) VALUES (?, ?,?,?,?,?)`, [userid,firstname,lastname,username, email,password], function(err) {
+    db.run(`INSERT INTO User (userid,firstname,lastname,username, email,password) VALUES (?, ?,?,?,?,?)`, [userid,firstname,lastname,username, email,password], function(err) {
         if (err) {
             console.error(err.message);
             res.status(500).send('Error inserting user into database');
@@ -154,7 +154,7 @@ app.post('/addUserfull', (req, res) => {
 });
 
 app.get('/users', (req, res) => {
-    db.all(`SELECT * FROM users`, [], (err, rows) => {
+    db.all(`SELECT * FROM User`, [], (err, rows) => {
         if (err) {
             console.error(err.message);
             res.status(500).send('Error retrieving users from database');
@@ -178,12 +178,12 @@ app.get('/equipment', (req, res) => {
 app.post("/register", (req, res) => {
     const { firstname, lastname,username, email, password } = req.body;
     console.log(req.body);
-    //👇🏻 checks if the user does not exist
+    // checks if the user does not exist
     // if not  push the data
     // todo
     //get latest user ID from db and +1
     // For userid field
-    db.run(`INSERT INTO users (userid,firstname,lastname,username, email,password) VALUES (?, ?,?,?,?,?)`, [userid,firstname,lastname,username, email,password], function(err) {
+    db.run(`INSERT INTO User (userid,firstname,lastname,username, email,password) VALUES (?, ?,?,?,?,?)`, [userid,firstname,lastname,username, email,password], function(err) {
         if (err) {
             console.error(err.message);
             res.status(500).send('Error inserting user into database');

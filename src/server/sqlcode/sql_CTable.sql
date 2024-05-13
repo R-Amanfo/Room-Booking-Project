@@ -22,10 +22,10 @@
 
 --  //Add users//
 
--- INSERT INTO users (userId,firstName,lastName,username,email,password) VALUES ( 1001,'Teddy','Tbear', 'Tbear23', 'kumar@draft.dev', '$2b$10$XccSsh0YszxUYbWWHQZZfeGH87YSE3pP7G4uF' );
--- INSERT INTO users (userId,firstName,lastName,username,email,password) VALUES ( 1002,'pauly','tomomo', 'Oberda3', 'wednesday@draft.dev', '$2b$tentenH87YSE3UYbWWHQZZfeGH87YSE3pP7G4uF' );
--- INSERT INTO users (userId,firstName,lastName,username,email,password) VALUES ( 1003,'Betty','bar', 'Bettyd3', 'tempomar@draft.dev', '$2b$10ZfeGH87YSE3UYbWWHQZZfeGH87YSE3pP7G4uF' );
--- INSERT INTO users (userId,firstName,lastName,username,email,password) VALUES ( 1004,'testy','test', 'tester', 'testtest@draft.dev', '$testestetstesttestHQZZfeGH87YSE3pP7G4uF' );
+-- INSERT INTO User (userId,firstName,lastName,username,email,password) VALUES ( 1001,'Teddy','Tbear', 'Tbear23', 'kumar@draft.dev', '$87YSE3pP7G4uF' );
+-- INSERT INTO User (userId,firstName,lastName,username,email,password) VALUES ( 1002,'pauly','tomomo', 'Oberda3', 'wednesday@draft.dev', '$2GH87YSE3pP7G4uF' );
+-- INSERT INTO User (userId,firstName,lastName,username,email,password) VALUES ( 1003,'Betty','bar', 'Bettyd3', 'tempomar@draft.dev', '$GH87YSE3pP7G4uF' );
+-- INSERT INTO User (userId,firstName,lastName,username,email,password) VALUES ( 1004,'testy','test', 'tester', 'testtest@draft.dev', '$ZfeGH87YSE3pP7G4uF' );
 
 
 
@@ -70,7 +70,10 @@
 --   FOREIGN KEY (room_id) REFERENCES rooms(roomid)
 -- );
 
-INSERT INTO equipment (eqname, quantity,room_id) VALUES ('samsunga1','5','2');
+INSERT INTO Equipment (name,description ,quantity) VALUES ('samsungA1','small','200');
+INSERT INTO Equipment (name,description ,quantity) VALUES ('samsung22','small','500');
+INSERT INTO Equipment (name,description ,quantity) VALUES ('IPhone14','small','200');
+INSERT INTO Equipment (name,description ,quantity) VALUES ('Server','large','50');
 
 
 

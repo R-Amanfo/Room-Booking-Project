@@ -1,0 +1,32 @@
+CREATE TABLE Room (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL UNIQUE,
+  description TEXT,
+  capacity INTEGER NOT NULL DEFAULT 1 
+);
+
+CREATE TABLE Equipment (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL UNIQUE,
+  description TEXT,
+  quantity INTEGER NOT NULL DEFAULT 1
+);
+
+CREATE TABLE Booking (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  room_id INTEGER NOT NULL REFERENCES Room(id),
+  equipment_id INTEGER REFERENCES Equipment(id),
+  user_id INTEGER NOT NULL REFERENCES User(id),
+  start_datetime DATETIME NOT NULL,
+  end_datetime DATETIME NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES User(id)
+);
+
+CREATE TABLE User (
+  userid INTEGER PRIMARY KEY AUTOINCREMENT,
+  firstname TEXT ,
+  lastname TEXT ,
+  username TEXT NOT NULL UNIQUE,
+  email TEXT NOT NULL UNIQUE,
+  password TEXT NOT NULL 
+);
