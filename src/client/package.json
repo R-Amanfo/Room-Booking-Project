@@ -16,6 +16,7 @@
     "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
     "react-timezone-select": "^3.2.3",
+    "react-toastify": "^10.0.5",
     "sqlite3": "^5.1.7",
     "toast": "^0.5.4",
     "web-vitals": "^2.1.4"
