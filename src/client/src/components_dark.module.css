@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
+
+
+@media (min-width: 1024px) {
+  .lg\:text-lg {
+      font-size: 1.25rem;
+  }
+}
+ 
+/* text styles */
+.yantramanav-thin {
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.yantramanav-light {
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.yantramanav-regular {
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.yantramanav-medium {
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.yantramanav-bold {
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.yantramanav-black {
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.title {
+
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 3rem;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.body {
+
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.25rem;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.button {
+
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  border: 2px solid rgba(239, 125, 0);
+  border-radius: 8px;
+  background-color: transparent;
+  color: white;
+  padding: .75rem 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgba(239, 125, 0);
+  color: #fff;
+  transition-duration: .3s;
+}
+
+.button:active {
+  background-color: rgb(166, 86, 0);
+  border: 3px solid rgba(166, 86, 0);
+  color: #fff;
+  transition-duration: .3s;
+}
+
+/* HOW TO USE THIS MODULE IN COMPONENT FILES(ONLY):
+example:
+import styles from './project-style.module.css'; 
+
+const Car = () => {
+  return <h1 className={styles.components}>Hello Car!</h1>;
+}
+
+export default Car; */

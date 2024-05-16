@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
-import styles from '../components_style.module.css';
+import styles from '../components_light.module.css';
 
 const SearchBar = () => {
   const [equipment, setEquipment] = useState([]);
@@ -57,7 +57,7 @@ const SearchBar = () => {
   };
   
   return (
-    <form className={styles.components} onSubmit={handleSubmit}>
+    <form className={styles.body} onSubmit={handleSubmit}>
       <div>
         <label htmlFor="equipment">Select Equipment:</label>
         <select id="equipment" value={setEquipment} onChange={handleEquipmentChange}>
@@ -81,7 +81,7 @@ const SearchBar = () => {
           min={1}
         />
       </div>
-      <button type="submit">Search/Book</button>
+      <button className={styles.button} type="submit">Search/Book</button>
     </form>
   );
 };
