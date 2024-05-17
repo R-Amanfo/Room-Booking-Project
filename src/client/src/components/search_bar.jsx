@@ -57,23 +57,24 @@ const SearchBar = () => {
   };
   
   return (
-    <form className={styles.body} onSubmit={handleSubmit}>
-      <div>
+    <form className={"searchContainer"} onSubmit={handleSubmit}>
+      <div className={styles.body} style={{fontWeight: 400}}>
         <label htmlFor="equipment">Select Equipment:</label>
-        <select id="equipment" value={setEquipment} onChange={handleEquipmentChange}>
+        <select className={styles.inputBox} id="equipment" value={setEquipment} onChange={handleEquipmentChange}>
           <option value="">-- Select Equipment --</option>
           {equipmentList.map((item, index) => (            
              <option key={index} value={equipmentList.name}>{equipment.name}</option>
           ))}
         </select>
       </div>
-      <div>
+      <div className={styles.body} style={{fontWeight: 400}}>
         <label htmlFor="date">Select Date:</label>
-        <DatePicker id="date" selected={date} onChange={handleDateChange} />
+        <DatePicker className={styles.inputBox} id="date" selected={date} onChange={handleDateChange} />
       </div>
-      <div>
+      <div className={styles.body} style={{fontWeight: 400}}>
         <label htmlFor="numberOfPeople">Number of People:</label>
         <input
+          className={styles.inputBox}
           type="number"
           id="numberOfPeople"
           value={numberOfPeople}

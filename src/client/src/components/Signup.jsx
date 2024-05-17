@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { handleRegister } from "../utils/resource";
+import styles from '../components_light.module.css';
 
 const Signup = () => {
     const [username, setUsername] = useState("");
@@ -27,61 +28,85 @@ const Signup = () => {
     //get latest user ID from db and +1
     // For userid field
     return (
-        <main className='signup'>
-            <form className='signup__form' onSubmit={handleSubmit}>
-                <h2 className='signup__title'>Create an account</h2>
-                <label htmlFor='firstname'>First Name</label>
-                <input
-                    id='firstname'
-                    name='firstname'
-                    type='firstname'
-                    required
-                    value={firstname}
-                    onChange={(e) => setFname(e.target.value)}
-                />
-                <label htmlFor='lastname'>Last Name</label>
-                <input
-                    id='lastname'
-                    name='lastname'
-                    type='lastname'
-                    required
-                    value={lastname}
-                    onChange={(e) => setLname(e.target.value)}
-                />
-                <label htmlFor='email'>Email Address</label>
-                <input
-                    id='email'
-                    name='email'
-                    type='email'
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <label htmlFor='username'>Username</label>
-                <input
-                    id='username'
-                    name='username'
-                    required
-                    type='text'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <label htmlFor='password'>Password</label>
-                <input
-                    id='password'
-                    type='password'
-                    name='password'
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button className='signupButton'>REGISTER</button>
-                <p style={{ textAlign: "center", marginTop: "30px" }}>
-                    Already have an account?{" "}
-                    <Link className='link' to='/'>
-                        Sign in
-                    </Link>
-                </p>
+        <main>
+            <form className={"mainContainer"} style={{gap:20}} onSubmit={handleSubmit}>
+                <div className={"titleContainer"}>
+                    <div className={styles.title}>Create an Account</div>
+                </div>
+                <div className={styles.inputContainer}>
+                    <label className={styles.body} htmlFor='firstname'>First Name</label>
+                    <input
+                        className={styles.inputBox}
+                        placeholder="First Name"
+                        id='firstname'
+                        name='firstname'
+                        type='firstname'
+                        required
+                        value={firstname}
+                        onChange={(e) => setFname(e.target.value)}
+                    />
+                </div>
+                <div className={styles.inputContainer}>
+                    <label className={styles.body} htmlFor='lastname'>Last Name</label>
+                    <input
+                        className={styles.inputBox}
+                        placeholder="Last Name"
+                        id='lastname'
+                        name='lastname'
+                        type='lastname'
+                        required
+                        value={lastname}
+                        onChange={(e) => setLname(e.target.value)}
+                    />
+                </div>
+                <div className={styles.inputContainer}>
+                    <label className={styles.body} htmlFor='email'>Email Address</label>
+                    <input
+                        className={styles.inputBox}
+                        placeholder="Email"
+                        id='email'
+                        name='email'
+                        type='email'
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className={styles.inputContainer}>
+                    <label className={styles.body} htmlFor='username'>Username</label>
+                    <input
+                        className={styles.inputBox}
+                        placeholder="Enter your new username"
+                        id='username'
+                        name='username'
+                        required
+                        type='text'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
+                <div className={styles.inputContainer}>
+                    <label className={styles.body} htmlFor='password'>Password</label>
+                    <input
+                        className={styles.inputBox}
+                        placeholder="Enter your new passwrod"
+                        id='password'
+                        type='password'
+                        name='password'
+                        required
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <div className={"buttonContainer"}>
+                    <button className={styles.button}>REGISTER</button>
+                    <p className={styles.bodySmall} style={{ textAlign: "center" }}>
+                        Already have an account?{" "}
+                        <Link className='link' to='/'>
+                            Sign in
+                        </Link>
+                    </p>
+                </div>
             </form>
         </main>
     );

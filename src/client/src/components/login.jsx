@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import styles from '../components_light.module.css';
 
 const Login = (props) => {
     const [email, setEmail] = useState("")
@@ -95,35 +96,32 @@ const Login = (props) => {
 
     return <div className={"mainContainer"}>
         <div className={"titleContainer"}>
-            <div>Login</div>
+            <div className={styles.title}>Login</div>
         </div>
-        <br />
-        <div className={"inputContainer"}>
+        <div className={styles.inputContainer}>
             <input
                 value={email}
                 placeholder="Enter your email here"
                 onChange={ev => setEmail(ev.target.value)}
-                className={"inputBox"} />
-            <label className="errorLabel">{emailError}</label>
+                className={styles.inputBox} />
+            <label className={styles.errorLabel}>{emailError}</label>
         </div>
-        <br />
-        <div className={"inputContainer"}>
+        <div className={styles.inputContainer}>
             <input
                 value={password}
                 placeholder="Enter your password here"
                 onChange={ev => setPassword(ev.target.value)}
-                className={"inputBox"} />
-            <label className="errorLabel">{passwordError}</label>
+                className={styles.inputBox} />
+            <label className={styles.errorLabel}>{passwordError}</label>
         </div>
-        <br />
-        <div className={"inputContainer"}>
+        <div className={"buttonContainer"}>
             <input
-                className={"inputButton"}
+                className={styles.button}
                 type="button"
                 onClick={onButtonClick}
                 value={"Log in"} />
 
-                <p style={{ textAlign: "center", marginTop: "30px" }}>
+                <p className={styles.bodySmall} style={{ textAlign: "center" }}>
                     Don't have an account?{" "}
                     <Link className='link' to='/Signup'>
                         Create one

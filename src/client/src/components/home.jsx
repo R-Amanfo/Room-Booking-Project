@@ -1,5 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom";
+import styles from '../components_light.module.css';
 
 const Home = (props) => {
     const { loggedIn, email } = props
@@ -17,14 +18,14 @@ const Home = (props) => {
 
     return <div className="mainContainer">
         <div className={"titleContainer"}>
-            <div>Welcome!</div>
+            <div className={styles.title}>Welcome!</div>
         </div>
-        <div>
+        <div className={styles.body}>
             This is the home page.
         </div>
         <div className={"buttonContainer"}>
             <input
-                className={"inputButton"}
+                className={styles.button}
                 type="button"
                 onClick={onButtonClick}
                 value={loggedIn ? "Log out" : "Log in"} />

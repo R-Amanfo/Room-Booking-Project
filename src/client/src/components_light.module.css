@@ -10,12 +10,26 @@
 .title {
 
   font-family: "Yantramanav", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #0d2742;
   background-color: #fff;
+  padding-bottom: 2rem;
 
+}
+
+.bodySmall {
+
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: .75rem;
+  color: #0d2742;
+  background-color: #fff;
+  padding: .75rem; 
+  margin: 0; 
+   
 }
 
 .body {
@@ -26,7 +40,15 @@
   font-size: 1.25rem;
   color: #0d2742;
   background-color: #fff;
-
+  /*padding: .75rem; */ 
+  
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  gap: .5rem;
+ 
 }
 
 .button {
@@ -34,12 +56,13 @@
   font-family: "Yantramanav", sans-serif;
   font-weight: 500;
   font-style: normal;
+  font-size: 1rem;
+
   border: 2px solid rgba(99, 178, 88);
   border-radius: 8px;
   background-color: transparent;
   color: rgba(13, 39, 66);
   padding: .75rem 1.5rem;
-  font-size: 1rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -69,16 +92,27 @@
 
 .inputContainer > .errorLabel {
   color: red;
-  font-size: 12px;
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1rem;
+  background-color: #fff;
+  padding: .75rem;  
 }
 
 .inputBox {
-  height: 48px;
-  width: 400px;
-  font-size: large;
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1rem;
+  color: grey;
+
+  height: auto;
+  width: fit-content;
   border-radius: 8px;
-  border: 1px solid grey;
-  padding-left: 8px;
+  border: 2px solid lightgrey;
+  padding: 8px 16px;
+
 }
 
 
