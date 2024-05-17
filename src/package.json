@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "react-scripts start --host=localhost --port=3005",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-toastify": "^10.0.5"
+  }
+}
