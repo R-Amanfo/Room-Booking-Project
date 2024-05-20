@@ -1,11 +1,11 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes,Navigate  } from 'react-router-dom';
 import Home from './components/home';
 import Login from './components/login';
 import {Booking} from './components/booking';
-import {Testpage} from './components/testpage';
 import Signup from './components/Signup';
 import SearchBar from './components/search_bar';
 import BookUser from './components/BookUser';
+import Dashboard from './components/Dashboard';
 import './App.css';
 import { useEffect, useState } from 'react';
 
@@ -41,10 +41,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-        <Route path="/Testpage" element={<Testpage />} />
+       
         <Route path="/booking" element={<Booking />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/SearchBar" element={<SearchBar />} />
+        <Route path="/dashboard" element={loggedIn ? <Dashboard email={email} /> : <Navigate to="/login" />} />
         <Route path="/BookUser" element={<BookUser />} />
           <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
