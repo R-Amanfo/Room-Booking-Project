@@ -20,9 +20,10 @@ const Home = (props) => {
         <div className={"titleContainer"}>
             <div className={styles.title}>Welcome!</div>
         </div>
-        <div className={styles.body}>
+        {/* <div className={styles.body}>
             This is the home page.
         </div>
+        <br/> */}
         <div className={"buttonContainer"}>
             <input
                 className={styles.button}

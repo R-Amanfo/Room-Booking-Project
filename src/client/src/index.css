@@ -14,7 +14,9 @@ code {
     monospace;
 }
 
-/* css for login */
+/* css for all pages' layout/containers */
+/* for styles, colours and font use components_dark.module.css OR components_light.module.css*/
+
 main {
   padding: 5rem 0;
   flex: 1;
@@ -57,14 +59,28 @@ code {
   height: 100vh;
 }
 
-.searchContainer {
-  flex-direction: row;
+.navMenuContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+
+.searchContainer, 
+.navBarContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
   padding: 0 40px;
-
+  box-sizing: border-box;
 }
 
 .titleContainer {

@@ -88,6 +88,7 @@
   align-items: flex-start;
   justify-content: center;
 
+
 }
 
 .inputContainer > .errorLabel {
@@ -111,7 +112,7 @@
   width: fit-content;
   border-radius: 8px;
   border: 2px solid lightgrey;
-  padding: 8px 16px;
+  padding: 6px 16px;
 
 }
 

@@ -28,8 +28,7 @@ const Signup = () => {
     //get latest user ID from db and +1
     // For userid field
     return (
-        <main>
-            <form className={"mainContainer"} style={{gap:20}} onSubmit={handleSubmit}>
+            <form className={"mainContainer"} style={{gap:20, paddingTop:0}} onSubmit={handleSubmit}>
                 <div className={"titleContainer"}>
                     <div className={styles.title}>Create an Account</div>
                 </div>
@@ -108,7 +107,6 @@ const Signup = () => {
                     </p>
                 </div>
             </form>
-        </main>
     );
 };
 
