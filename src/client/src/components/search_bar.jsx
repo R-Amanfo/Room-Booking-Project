@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Form, Row, Col, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
-import styles from '../components_light.module.css';
+import styles from './search_bar.scss';
+//import styles from '../components_light.module.css'
 
 const SearchBar = () => {
   const [equipment, setEquipment] = useState([]);
@@ -81,35 +84,61 @@ const SearchBar = () => {
     console.log('Number of People:', numberOfPeople);
   };
   
-  return (
-    <form className={"searchContainer"} onSubmit={handleSubmit}>
-      <div className={styles.body} style={{fontWeight: 400}}>
-        <label htmlFor="equipment">Select Equipment:</label>
-        <select className={styles.inputBox} id="equipment" value={setEquipment} onChange={handleEquipmentChange}>
-          <option value="">-- Select Equipment --</option>
-          {equipmentList.map((item, index) => (            
-             <option key={index} value={equipmentList.name}>{equipment.name}</option>
-          ))}
-        </select>
-      </div>
-      <div className={styles.body} style={{fontWeight: 400}}>
-        <label htmlFor="date">Select Date:</label>
-        <DatePicker className={styles.inputBox} id="date" selected={date} onChange={handleDateChange} />
-      </div>
-      <div className={styles.body} style={{fontWeight: 400}}>
-        <label htmlFor="numberOfPeople">Number of People:</label>
-        <input
-          className={styles.inputBox}
-          type="number"
-          id="numberOfPeople"
-          value={numberOfPeople}
-          onChange={handleNumberOfPeopleChange}
-          min={1}
-        />
-      </div>
-      <button className={styles.button} type="submit">Search/Book</button>
-    </form>
-  );
-};
+  return  (
+    <Form className="container" onSubmit={handleSubmit}>
+      <Row className="align-items-center mb-4 p-2">
+        <Col md={4} className="d-flex flex-column">
+          <Form.Group controlId="equipment" className="w-100">
+            <Row className="align-items-center">
+              <Col xs={6}>
+                <Form.Label className="mb-0">Select Equipment:</Form.Label>
+              </Col>
+              <Col xs={6} className='justify-content-start'>
+                <Form.Control as="select" value={equipment} onChange={handleEquipmentChange}>
+                  <option value="">-- Select Equipment --</option>
+                  {equipmentList.map((item, index) => (
+                    <option key={index} value={item.name}>{item.name}</option>
+                  ))}
+                </Form.Control>
+              </Col>
+            </Row>
+          </Form.Group>
+        </Col>
+        <Col md={3} className="d-flex flex-column">
+          <Form.Group controlId="date" className="w-100">
+            <Row className="align-items-center">
+                <Col xs={6} className='justify-content-start'> 
+                  <Form.Label className="mb-0">Select Date:</Form.Label>
+                </Col>
+                <Col xs={6}>
+                  <DatePicker className="form-control" selected={date} onChange={handleDateChange} />
+                </Col>
+            </Row>
+          </Form.Group>
+        </Col>
+        <Col md={3}>
+          <Form.Group controlId="numberOfPeople" className="w-100">
+            <Row className="align-items-center">
+              <Col xs={6}>
+                <Form.Label className="mb-0">Number of People:</Form.Label>
+              </Col>
+              <Col xs={6} className='justify-content-start'>
+                <Form.Control
+                type="number"
+                value={numberOfPeople}
+                onChange={handleNumberOfPeopleChange}
+                min={1}
+                />
+              </Col>
+            </Row>
+          </Form.Group>
+        </Col>
+        <Col md={2} className="d-flex justify-content-end">
+          <Button className="button" type="submit">Search/Book</Button>
+        </Col>
+      </Row>
+    </Form>
+  )
+}
 
 export default SearchBar;
