@@ -1,9 +1,21 @@
 import React from 'react'
+import SearchBar from './search_bar'
 
-const Dashboard = () => {
+const Dashboard = ({ email }) => {
   return (
-    <div>Dashboard</div>
-  )
+    <div >
+        <div >
+            <div >Dashboard</div>
+        </div>
+        <div>
+            <p>Welcome, {email}</p>
+           
+        </div>
+        <div>
+        <SearchBar/>
+       </div>
+    </div>
+);
 }
 
 export default Dashboard

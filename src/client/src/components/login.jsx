@@ -82,7 +82,7 @@ const Login = (props) => {
                 localStorage.setItem("user", JSON.stringify({email, token: r.token}))
                 props.setLoggedIn(true)
                 props.setEmail(email)
-                navigate("/Testpage")
+                navigate("/Dashboard")
                 console.log("login working")
              
             } else {

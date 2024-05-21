@@ -138,6 +138,19 @@ app.post('/addequipment', (req, res) => {
     });
 });
 
+app.post('/addroom', (req, res) => {
+    const { name,description, capacity,max_capicity } = req.body;
+
+    db.run(`INSERT INTO Room (namename,description, capacity,max_capicityy) VALUES (?,?,?,?)`, [name,description, capacity,max_capicity], function(err) {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send('Error inserting user into database');
+        } else {
+            console.log(`A equipment has been added with ID: ${this.lastID}`);
+            res.status(200).send('equipment added successfully');
+        }
+    });
+});
 
 app.post('/addUserfull', (req, res) => {
     const { username, email } = req.body;

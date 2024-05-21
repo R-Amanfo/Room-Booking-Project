@@ -36,6 +36,31 @@ const SearchBar = () => {
     fetchEquipmentData();
       }, []);
 
+      useEffect(() => {
+        async function fetchuserdata() {
+          try {
+            const response = await axios.get('http://localhost:3001/users');
+            let testdata2 = response.data;        
+            console.log(testdata2);        
+            
+            for (var i = 0; i < testdata2.length; i++) {
+            var select = document.getElementById("numberOfPeople");
+            var option = document.createElement("numberOfPeople");
+            option.text = testdata2[i].username;   
+            option.value = testdata2[i].username;
+            select.add(option);
+          }
+           // setEquipmentList(testdata); //adds blank options to the list
+       
+       
+          } catch (error) {
+            console.error('Error fetching equipment data:', error);
+          }
+        }
+    
+        fetchuserdata();
+          }, []);   
+
   const handleEquipmentChange = (event) => {
     setEquipment(event.target.value);
   };
