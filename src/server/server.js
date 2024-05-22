@@ -223,4 +223,4 @@ app.post("/register", (req, res) => {
 
 
 
-app.listen(3001 ,() => console.log('Listtening to port 3001'))
+app.listen(3001 ,() => console.log('Listening to port 3001'))
