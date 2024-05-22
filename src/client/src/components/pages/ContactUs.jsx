@@ -1,6 +1,10 @@
 import React from "react";
+import { Form, Row, Col, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from './ContactUs.scss';
 
-function App() {
+
+function Contact() {
   const [result, setResult] = React.useState("");
 
   const onSubmit = async (event) => {
@@ -27,19 +31,61 @@ function App() {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input type="text" name="name" required/>
-        <input type="email" name="email" required/>
-        <textarea name="message" required></textarea>
+  <div className="container mt-5">
+    <div className="row justify-content-center">
+        <div className="col-md-6">
+            <div className="titleContainer">
+              <h4 className="title">Contact Us</h4>
+            </div>
+              <form onSubmit={onSubmit}>
+                <div className="form-group">
+                  <div className="float-start">
+                    <label className="body" htmlFor="name">Name</label>
+                  </div>
+                  <input
+                      type="text"
+                      className="form-control"
+                      id="name"
+                      name="name"
+                      required
+                    />
+                </div>
+                <br></br>
+                <div className="form-group">
+                  <div className="float-start">
+                    <label className="body" htmlFor="email">Email</label>
+                  </div>
+                  <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      name="email"
+                      required
+                    />
+                </div>
+                <br></br>
+                <div className="form-group">
+                  <div className="float-start">
+                    <label className="body" htmlFor="message">Message</label>
+                  </div>
+                  <textarea
+                      className="form-control"
+                      id="message"
+                      name="message"
+                      rows="4"
+                      required
+                  ></textarea>
+                </div>
+                <div className="buttonContainer">
+                  <button type="submit" className="button">Send</button>
+                </div>                
+              </form>
+              <div id="result" className="mt-3">{result}</div>
+        </div>
+      </div>
+  </div>
 
-        <button type="submit">Submit Form</button>
-
-      </form>
-      <span>{result}</span>
-
-    </div>
   );
 }
 
-export default App;
+export default Contact;

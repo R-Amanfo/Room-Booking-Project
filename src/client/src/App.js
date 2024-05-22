@@ -6,6 +6,7 @@ import {Testpage} from './components/testpage';
 import Signup from './components/Signup';
 import SearchBar from './components/search_bar';
 import BookUser from './components/BookUser';
+import ContactUs from './components/pages/ContactUs'
 import './App.css';
 import { useEffect, useState } from 'react';
 import Layout from './components/Layout';
@@ -51,6 +52,7 @@ function App() {
         <Route path="/Signup" element={<Signup />} />
         <Route path="/SearchBar" element={<SearchBar />} />
         <Route path="/BookUser" element={<BookUser />} />
+        <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
         </Routes>
