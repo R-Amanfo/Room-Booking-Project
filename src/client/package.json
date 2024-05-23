@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "description": "Getting Started with Create React App",
+  "scripts": {
+    "start": "set PORT=3005 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -27,9 +33,7 @@
     "toast": "^0.5.4",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start --host=localhost --port=3005"
-  },
+  "devDependencies": {},
   "eslintConfig": {
     "extends": [
       "react-app",
