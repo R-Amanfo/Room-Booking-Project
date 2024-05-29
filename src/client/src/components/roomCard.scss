@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
+
+
+.cardContainer {
+
+    background-color: #fff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    /*padding: 8px;*/
+    width: fit-content;
+    max-height: fit-content;
+    border-color: #fff;
+}
+
+.title {
+
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  color: #0d2742;
+  background-color: #fff;
+
+}
+
+.titleContainer {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 1.5rem;
+
+  }
+
+.bodySmall {
+
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1rem;
+  color: #0d274288;
+  background-color: #fff;
+  padding-bottom: .75rem; 
+  margin: 0; 
+   
+}
+
+.body {
+
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.25rem;
+  color: #0d2742;
+  background-color: #fff;
+  padding-top: 1.5rem;
+  
+  flex-direction: row;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  height: auto;
+ 
+}
+
+.button {
+
+  font-family: "Yantramanav", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem;
+
+  border: 2px solid #63B258;
+  border-radius: 8px;
+  background-color: transparent;
+  color: rgba(13, 39, 66);
+  padding: .75rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  
+  &:hover {
+  background-color: rgba(99, 178, 88);
+  color: #fff;
+  transition-duration: .3s;
+  }
+
+  &:active {
+  background-color: rgb(62, 112, 55);
+  border: 3px solid rgba(62, 112, 55);
+  color: #fff;
+  transition-duration: .3s;
+  }
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    padding-bottom: 2rem;
+  }

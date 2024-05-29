@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Row, Col, Button } from 'react-bootstrap';
+import { Form, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
-import styles from './search_bar.scss';
+import './search_bar.scss';
 //import styles from '../components_light.module.css'
 
 const SearchBar = () => {
@@ -85,8 +85,8 @@ const SearchBar = () => {
   };
   
   return  (
-    <Form className="container" onSubmit={handleSubmit}>
-      <Row className="align-items-center mb-4 p-2">
+    <Form className="searchBarContainer" onSubmit={handleSubmit}>
+      <Row className="align-items-center mb-4 p-2 pl-4 pr-4">
         <Col md={4} className="d-flex flex-column">
           <Form.Group controlId="equipment" className="w-100">
             <Row className="align-items-center">
@@ -133,8 +133,8 @@ const SearchBar = () => {
             </Row>
           </Form.Group>
         </Col>
-        <Col md={2} className="d-flex justify-content-end">
-          <Button className="button" type="submit">Search/Book</Button>
+        <Col md={2} className="d-flex justify-content-end pr-4">
+          <button className="button" type="submit">Search</button>
         </Col>
       </Row>
     </Form>

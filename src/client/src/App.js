@@ -6,12 +6,14 @@ import {Testpage} from './components/testpage';
 import Signup from './components/Signup';
 import SearchBar from './components/search_bar';
 import BookUser from './components/BookUser';
-import ContactUs from './components/pages/ContactUs'
+import ContactUs from './components/pages/ContactUs';
+import RoomCard from './components/roomCard'
 import './App.css';
 import { useEffect, useState } from 'react';
 import Layout from './components/Layout';
 import NavbarComp from './components/NavbarComp';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SearchPage from './components/pages/SearchPage';
 
 
 function App() {
@@ -46,6 +48,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
          <NavbarComp />
+         <SearchPage />
         <Routes>
         <Route path="/Testpage" element={<Testpage />} />
         <Route path="/booking" element={<Booking />} />
