@@ -48,8 +48,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
          <NavbarComp />
-         <SearchPage />
         <Routes>
+        <Route path='/display-bookings' element={<SearchPage />} />
         <Route path="/Testpage" element={<Testpage />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/Signup" element={<Signup />} />
