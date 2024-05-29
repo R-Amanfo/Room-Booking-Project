@@ -12,7 +12,7 @@ return  (
         <img src={imageUrl} className="card-img-top" alt={title} />
         <Col>
             <Col className="titleContainer">
-                <h3 className="title m-0" style={{padding:0}}>{title}</h3>
+                <h3 className="title" style={{padding:0}}>{title}</h3>
             </Col>
             <Col className="bodyContainer">
                 <p className="bodySmall">
@@ -25,7 +25,7 @@ return  (
                 </p>
             </Col>
         </Col>
-        <Col className="buttonContainer">
+        <Col className="buttonContainer p-4">
           <button className="button" type="submit">Book Room</button>
         </Col>
       </Card>
