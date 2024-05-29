@@ -69,7 +69,7 @@ import SearchBar from './search_bar';
       </div>
     </div>
   );
-};
+//};
 
 
 export default RoomSearch;

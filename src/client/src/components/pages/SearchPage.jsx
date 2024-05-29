@@ -12,7 +12,7 @@ const SearchPage = () => {
         <SearchBar />
         <CardGroup className="cardsContainer">
             <Row className='row-cols-1 row-cols-md-3 g-5'>
-            <Col>
+            <Col className="mt-0">
                 <Card>
                     <RoomCard 
                     title='Room 01' 
@@ -23,7 +23,7 @@ const SearchPage = () => {
                     />
                 </Card>
             </Col>
-            <Col>
+            <Col className="mt-0">
                 <Card>
                     <RoomCard 
                     title = 'Room 02' 
@@ -34,7 +34,7 @@ const SearchPage = () => {
                     />
                 </Card>
             </Col>
-            <Col>
+            <Col className="mt-0">
                 <Card>
                     <RoomCard 
                     title = 'Room 03' 
