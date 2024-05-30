@@ -21,9 +21,11 @@ const RoomCard = ({ title, description, capacity, availability, imageUrl }) => {
           <p className="body">
             Availability: {availability} {/* fetch room availability */}
           </p>
-          <Link to="/BookingPage" className="bookNowButton">
-            Book Now
-          </Link>
+          <Col className='buttonContainer pt-0'>
+            <Link to="/BookingPage" className="bookNowButton">
+              Book Now
+            </Link>
+          </Col>
         </Col>
       </Col>
     </Card>

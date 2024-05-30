@@ -9,6 +9,7 @@ import './search_bar.scss';
 
 const SearchBar = () => {
   const [equipmentList, setEquipmentList] = useState([]);
+  const [date, setDate] = useState(new Date());
   const [numberOfPeopleList, setNumberOfPeopleList] = useState([]);
 
   useEffect(() => {
@@ -38,6 +39,10 @@ const SearchBar = () => {
     console.log('Selected equipment:', event.target.value);
   };
 
+  const handleDateChange = (date) => {
+    setDate(date);
+  };
+
   const handleNumberOfPeopleChange = (event) => {
     console.log('Number of people:', parseInt(event.target.value));
   };
@@ -64,6 +69,18 @@ const SearchBar = () => {
                   ))}
                 </Form.Control>
               </Col>
+            </Row>
+          </Form.Group>
+        </Col>
+        <Col md={3} className="d-flex flex-column">
+          <Form.Group controlId="date" className="w-100">
+            <Row className="align-items-center">
+                <Col xs={6} className='justify-content-start'> 
+                  <Form.Label className="mb-0">Select Date:</Form.Label>
+                </Col>
+                <Col xs={6}>
+                  <DatePicker className="form-control" selected={date} onChange={handleDateChange} />
+                </Col>
             </Row>
           </Form.Group>
         </Col>
