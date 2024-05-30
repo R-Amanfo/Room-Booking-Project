@@ -1,62 +1,59 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './components/home';
 import Login from './components/login';
-import {Booking} from './components/booking';
-import {Testpage} from './components/testpage';
+import { Booking } from './components/booking';
+import { Testpage } from './components/testpage';
 import Signup from './components/Signup';
 import SearchBar from './components/search_bar';
 import BookUser from './components/BookUser';
 import ContactUs from './components/pages/ContactUs';
-import RoomCard from './components/roomCard'
+import RoomCard from './components/roomCard';
 import './App.css';
 import { useEffect, useState } from 'react';
-import Layout from './components/Layout';
 import NavbarComp from './components/NavbarComp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchPage from './components/pages/SearchPage';
-
+import BookingPage from './components/pages/BookingPage';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [email, setEmail] = useState("")
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
-    // Fetch the user email and token from local storage
-    const user = JSON.parse(localStorage.getItem("user"))
+    const fetchUser = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/verify', {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ token: localStorage.getItem("user")?.token }),
+        });
+        const data = await response.json();
+        setLoggedIn(data.message === "success");
+        setEmail(localStorage.getItem("user")?.email || "");
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-    // If the token/email does not exist, mark the user as logged out
-    if (!user || !user.token) {
-      setLoggedIn(false)
-      return
-    }
-
-    // If the token exists, verify it with the auth server to see if it is valid
-    fetch('http://localhost:3001/verify', {
-            method: "POST",
-            headers: {
-                'jwt-token': user.token
-              }
-        })
-        .then(r => r.json())
-        .then(r => {
-            setLoggedIn('success' === r.message)
-            setEmail(user.email || "")
-        })
-  }, [])
+    fetchUser();
+  }, []);
 
   return (
     <div className="App">
       <BrowserRouter>
-         <NavbarComp />
+        <NavbarComp />
         <Routes>
-        <Route path='/display-bookings' element={<SearchPage />} />
-        <Route path="/Testpage" element={<Testpage />} />
-        <Route path="/booking" element={<Booking />} />
-        <Route path="/Signup" element={<Signup />} />
-        <Route path="/SearchBar" element={<SearchBar />} />
-        <Route path="/BookUser" element={<BookUser />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
+          <Route path="/display-bookings" element={<SearchPage />} />
+          <Route path="/Testpage" element={<Testpage />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/SearchBar" element={<SearchBar />} />
+          <Route path="/BookUser" element={<BookUser />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/home" element={<Home/>} />
+          <Route path="/BookingPage" element={<BookingPage />} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
         </Routes>
       </BrowserRouter>

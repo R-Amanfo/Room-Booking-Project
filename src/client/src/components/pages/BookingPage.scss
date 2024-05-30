@@ -1,0 +1,60 @@
+// src/BookingPage.scss
+$primary-color: #4CAF50;
+$hover-color: #45a049;
+$text-color: #333;
+$background-color: #f4f4f4;
+
+.booking-page {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $background-color;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 20px;
+  }
+
+  .calendar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .react-calendar {
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .time-slots {
+    h2 {
+      color: $text-color;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      .time-slot {
+        background-color: $primary-color;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $hover-color;
+        }
+      }
+    }
+  }
+}

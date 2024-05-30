@@ -11,12 +11,10 @@ const Signup = () => {
     const [lastname, setLname] = useState("");
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-
-        
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (username.trim() && password.trim() && email.trim() && firstname.trim() && lastname.trim()) {
-            console.log(email, username, password,firstname,lastname);
+            await handleRegister(firstname,lastname,email, username, password, navigate);
             setPassword("");
             setUsername("");
             setEmail("");
@@ -39,7 +37,7 @@ const Signup = () => {
                         placeholder="First Name"
                         id='firstname'
                         name='firstname'
-                        type='firstname'
+                        type='text'
                         required
                         value={firstname}
                         onChange={(e) => setFname(e.target.value)}
@@ -52,7 +50,7 @@ const Signup = () => {
                         placeholder="Last Name"
                         id='lastname'
                         name='lastname'
-                        type='lastname'
+                        type='text'
                         required
                         value={lastname}
                         onChange={(e) => setLname(e.target.value)}

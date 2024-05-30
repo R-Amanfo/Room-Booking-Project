@@ -8,12 +8,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './navbar.scss';
 import SearchPage from './pages/SearchPage';
+import Dashboard from './Dashboard';
 
 const NavbarComp = () => {
   return (
     <Navbar variant="" expand="lg" className="navbar-custom">
       <Container fluid>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand as={Link} to="/home">
           <img
             src="https://naimuri.com/dist/images/svg/logo.svg"
             width="100"
@@ -25,11 +26,11 @@ const NavbarComp = () => {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/home">Home</Nav.Link>
             <Nav.Link as={Link} to="/Booking">Manage Bookings</Nav.Link>
             <NavDropdown title="Display Bookings" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/display-bookings">Search/Book</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="#action4">Another action</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/BookingPage">Booking Date/Time</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="#action5">Something else here</NavDropdown.Item>
             </NavDropdown>

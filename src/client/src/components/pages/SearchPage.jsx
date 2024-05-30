@@ -5,6 +5,7 @@ import './SearchPage.scss';
 import SearchBar from "../search_bar";
 //import RoomSearch from "../roomSearchTest";
 import RoomCard from "../roomCard";
+import { Link } from "react-router-dom";
 
 const SearchPage = () => {
     return (
@@ -54,3 +55,5 @@ const SearchPage = () => {
 
 
 export default SearchPage;
+
+

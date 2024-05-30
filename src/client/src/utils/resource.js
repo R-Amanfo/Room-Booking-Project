@@ -1,5 +1,6 @@
 import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 
 export const time = [
     { id: "null", t: "Select" },
@@ -18,21 +19,16 @@ export const time = [
     { id: "19", t: "19:00pm" },
 ];
 
-export async function handleRegister(firstname,lastname,email, username, password, navigate) {
+export const handleRegister = async (firstname, lastname, email, username, password, navigate) => {
     try {
-        const request = await fetch("http://localhost:4000/register", {
-            method: "POST",
-            body: JSON.stringify({
-                email,
-                username,
-                password,
-            }),
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
+        const response = await axios.post('http://localhost:4000/register', {
+            firstname,
+            lastname,
+            email,
+            username,
+            password,
         });
-        const data = await request.json();
+        const data = response.data;
         if (data.error_message) {
             toast.error(data.error_message);
         } else {
@@ -43,36 +39,32 @@ export async function handleRegister(firstname,lastname,email, username, passwor
         console.error(err);
         toast.error("Account creation failed");
     }
-}
+};
 
+export const fetchAndDisplayUsers = async () => {
+    try {
+        const response = await axios.get('http://localhost:3001/equipment');
+        const data = response.data;
+        displayUsers(data);
+    } catch (error) {
+        console.error('Error:', error);
+        toast.error('Error fetching users');
+    }
+};
 
-export async function fetchAndDisplayUsers() {
-    fetch('http://localhost:3001/equipment')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data); // Log the received data directly
-            displayUsers(data); // Call the displayUsers function to render the data on the page
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-}
-
-function displayUsers(users) {
+export const displayUsers = (users) => {
     const userDataDiv = document.getElementById('userData');
-    userDataDiv.innerHTML = ''; // Clear previous data
+    userDataDiv.innerHTML = '';
 
     const userList = document.createElement('ul');
-    
-    // Iterate through each user and create list items to display their data
+
     users.forEach(user => {
         const listItem = document.createElement('li');
-        //ID is the default row id added by sqlite.
-        listItem.textContent = `Index: ${user.name}`;
+        listItem.textContent = `Index: ${user.id} - Name: ${user.name}`;
         userList.appendChild(listItem);
     });
 
-    
-    // Append the list of users to the userDataDiv
     userDataDiv.appendChild(userList);
-}
+};
+
+
