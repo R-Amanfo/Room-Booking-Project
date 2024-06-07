@@ -16,11 +16,11 @@ const NavbarComp = () => {
       <Container fluid>
         <Navbar.Brand as={Link} to="/home">
           <img
-            src="https://naimuri.com/dist/images/svg/logo.svg"
+            /*src="https://naimuri.com/dist/images/svg/logo.svg"*/
             width="100"
             height="30"
             className="d-inline-block align-top"
-            alt="Naimuri Booking System logo"
+            alt="Booking System logo"
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
